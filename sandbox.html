@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Filmes do TMDb</title>
+    <style>
+        #movie-container {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #movie-poster {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #movie-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        #movie-overview {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        #movie-release-date,
+        #movie-vote-average {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Filmes</h1>
+
+<div id="movie-container">
+    <img id="movie-poster" src="" alt="Poster do Filme">
+    <h2 id="movie-title"></h2>
+    <p id="movie-overview"></p>
+    <p id="movie-release-date"></p>
+    <p id="movie-vote-average"></p>
+</div>
+
+<script>
+    const apiKey = '0258bbf9a7e3c8d5b42210a28305d205';
+    const movieId = '19913';
+
+    const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
+
+    function displayMovie(movieData) {
+        const posterPath = movieData.poster_path ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}` : 'Sem Imagem Disponível';
+        document.getElementById('movie-poster').src = posterPath;
+        document.getElementById('movie-title').textContent = movieData.title;
+        document.getElementById('movie-overview').textContent = movieData.overview;
+        document.getElementById('movie-release-date').textContent = `Data de Lançamento: ${movieData.release_date}`;
+        document.getElementById('movie-vote-average').textContent = `Avaliação Média: ${movieData.vote_average}`;
+    }
+
+    function fetchMovie() {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => displayMovie(data))
+            .catch(error => console.error('Erro ao recuperar os detalhes do filme:', error));
+    }
+
+    fetchMovie();
+    const movieName = '500 dias com ela';
+
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(movieName)}`;
+
+    function searchMovieId() {
+        fetch(searchUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results && data.results.length > 0) {
+                    const movieId = data.results[0].id;
+                    console.log(`O ID do filme '${movieName}' é ${movieId}`);
+                } else {
+                    console.error(`Nenhum filme encontrado com o nome '${movieName}'`);
+                }
+            })
+            .catch(error => console.error('Erro ao buscar ID do filme:', error));
+    }
+
+    searchMovieId();
+</script>
+</body>
+</html>
