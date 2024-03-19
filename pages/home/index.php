@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For u Hannah</title>
-    <link rel="stylesheet" href="../../css-global/index.css">
+    <link rel="stylesheet" href="../../public/css-global/index.css">
 </head>
 <body>
     <div class="box" id="box">
@@ -50,7 +50,7 @@
 <!--            </section>-->
             <section class="section-music" id="mirror-box">
                 <div>
-                    <img src="../../img/mirror.png" alt="" style="height: 400px; width: 190px;" id="mirror">
+                    <img src="../../public/img/mirror.png" alt="" style="height: 400px; width: 190px;" id="mirror">
                 </div>
                 <p id="mirror-p">Olha essa gatinha (você).</p>
             </section>

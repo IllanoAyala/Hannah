@@ -14,7 +14,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For u Hannah</title>
-    <link rel="stylesheet" href="../../../css-global/index.css">
+    <link rel="stylesheet" href="../../../public/css-global/index.css">
 </head>
 <body>
     <div class="box" id="box">
