@@ -130,7 +130,7 @@ document.getElementById('mirror').addEventListener('click', () => {
     document.getElementById('mirror-p').style.display = 'none';
     
     const img = document.createElement('img');
-    img.src = Math.round(Math.random()) > 0.5 ? '../../img/gato.jpeg' : '../../img/gato2.jpeg';
+    img.src = Math.round(Math.random()) > 0.5 ? '../../public/img/gato.jpeg' : '../../public/img/gato2.jpeg';
     img.id = 'nerd-img';
     img.style.width = '300px';
 
