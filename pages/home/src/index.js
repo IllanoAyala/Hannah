@@ -143,11 +143,30 @@ document.getElementById('mirror').addEventListener('click', () => {
     }, 1500);
 });
 
-document.getElementById('button').addEventListener("click", () => {
+document.getElementById('button-movie-list').addEventListener("click", () => {
     document.getElementById('movie-list-form').submit();
     console.log('ok')
 })
 
+document.getElementById('button-movie-recommendations').addEventListener("click", () => {
+    document.getElementById('movie-recommendation-form').submit();
+    console.log('ok')
+})
 
+document.getElementById('button-heart').addEventListener("click", () => {
+    toggleDialog('dialog-heart');
+    console.log('ok')
+})
+
+document.getElementById('close-dialog-heart').addEventListener("click", () => {
+    toggleDialog('dialog-heart');
+});
+
+function toggleDialog(dialogId) {
+    var dialog = document.getElementById(dialogId);
+    var input = document.getElementById('box-players');
+    dialog.style.display = (dialog.style.display === 'block') ? 'none' : 'block';
+    input.style.display = (input.style.display === 'flex') ? 'none' : 'flex';
+}
 
 

@@ -96,18 +96,19 @@ body{
     justify-content: space-around;
 }
 
-.box{
+.box {
     display: flex;
     width: 97%;
-    height: auto;
-    min-height: 850px;
+    height: 100vh; /* altura de 100% da janela de visualização */
     background-color: #590202;
     margin: 10px;
     text-align: center;
     color: rgb(255, 255, 255);
     border-radius: 10px;
     flex-direction: column;
+    overflow: auto; /* Adicionado para permitir a rolagem quando necessário */
 }
+
 
 .box div{
     display: flex;
@@ -185,4 +186,31 @@ body{
     padding: 7px;
     padding-bottom: 0;
 }
+
+.film-box{
+    background-color: #790000;
+    max-width: 700px;
+    width: 80%;
+    align-self: center;
+    height: auto;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    flex-direction: column;
+    display: flex;
+    padding: 7px;
+    padding-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .film-box {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .film-box {
+        flex-direction: row;
+    }
+}
+
 
